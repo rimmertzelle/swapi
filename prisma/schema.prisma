@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model people {
+  id         Int       @id @default(autoincrement())
+  name       String?   @db.Char(255)
+  gender     String?   @db.Char(255)
+  skin_color String?   @db.Char(255)
+  hair_color String?   @db.Char(255)
+  eye_color  String?   @db.Char(255)
+  mass       String?   @db.Char(255)
+  birth_year String?   @db.Char(255)
+  homeworld  Int?
+  created    DateTime? @db.Date
+  edited     DateTime? @db.Date
+  height     String?   @db.Char(255)
+}
+
+model planets {
+  id              Int       @id @default(autoincrement())
+  climate         String?   @db.Char(255)
+  surface_water   String?   @db.Char(255)
+  name            String?   @db.Char(255)
+  diameter        String?   @db.Char(255)
+  rotation_period String?   @db.Char(255)
+  terrain         String?   @db.Char(255)
+  gravity         String?   @db.Char(255)
+  orbital_period  String?   @db.Char(255)
+  population      String?   @db.Char(255)
+  edited          DateTime? @db.Date
+  created         DateTime? @db.Date
+}
